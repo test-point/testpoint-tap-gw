@@ -268,6 +268,13 @@ Post TAP message
 * Message validation and checking steps are performed. Some of them blocking (TAP-GW won't accept messages or signatures which look obviously wrong). Some of them are performed in background due to time-consuming nature (for example, signature validation). If background validation has failed then message receives 'error' status and some debug info MAY be provided (for example, 'Wrong digital signature').
 * User MAY use specific endpoint to query message status (TODO: implement and document that endpoint), and react on 'error' status accordignly, and assume 'sent' status is good and final. Also, message UUID may be useful for debug purposes.
 
+**Message status**
+
+* processing - message is being validated
+* in_transit - message validated and is being stored/notarized
+* sent - message stored securely and available from notarizer
+* error - some error occured
+
 
 **Request example**:
 
