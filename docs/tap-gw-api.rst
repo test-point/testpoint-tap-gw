@@ -446,3 +446,49 @@ Update TAP message
 * 401 Invalid Authorization header. JWT Signature verification failed.
 * 404 Not Found
 * 500 Internal server error
+
+
+Get TAP message status
+----------------------
+
+* GET /api/messages/{message_id}/status/
+* Doesn't require any auth (knowing message ID is enough for access control)
+* May be used for debug purposes, to see how messages are processed and possible errors
+
+**Request example**:
+
+.. sourcecode:: bash
+
+  curl "http://tap-gw.testpoint.io/api/messages/{message_id}/status/"
+
+
+**Response example**:
+
+.. sourcecode:: json
+
+    {
+      "data": {
+        "type": "TapMessage",
+        "id": "eb2b4035-a7f6-4bbb-b686-a06a250eaed5",
+        "attributes": {
+          "uuid": "eb2b4035-a7f6-4bbb-b686-a06a250eaed5",
+          "status": "error",
+          "created_at": "2017-03-22T09:59:01.779081Z",
+          "error": "Can't get public key from DCP for given sender"
+        }
+      }
+    }
+
+.. sourcecode:: json
+
+    {
+      "data": {
+        "type": "TapMessage",
+        "id": "2467cde6-b58a-4890-919a-1b99db1b89e0",
+        "attributes": {
+          "uuid": "2467cde6-b58a-4890-919a-1b99db1b89e0",
+          "status": "sent",
+          "created_at": "2017-03-14T11:59:04.111491Z"
+        }
+      }
+    }
