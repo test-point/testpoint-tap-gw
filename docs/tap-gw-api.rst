@@ -289,7 +289,7 @@ Post TAP message
 
 .. sourcecode:: http
 
-    HTTP/1.1 202 Accepted
+    HTTP/1.1 200 OK
     Content-Type: application/json
     Vary: Accept, Cookie
     Allow: POST, OPTIONS
@@ -307,7 +307,7 @@ Post TAP message
 
 **Response codes**
 
-* 202 Accepted - message has been queued for validation and sending
+* 200 OK - message has been queued for validation and sending
 * 400 No file was submitted.
 * 404 Endpoint doesn't exist
 * 415 Unsupported media type (it shall be multipart/form-data)
